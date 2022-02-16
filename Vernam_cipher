@@ -1,0 +1,49 @@
+#include<iostream>
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    string message;
+    cout<<"Enter Original(plane Text) message"<<endl;
+    cin>>message;
+    cout<<"Enter Key(Key length should be same as message)"<<endl;
+    string  key;
+    cin>>key;
+    if(message.length()!=key.length())
+    {
+        cout<<"Size of plane text and length is not same"<<endl;
+        return 0;
+    }
+    string cipher="";
+    
+    
+    for(int i=0;i<message.length();i++)
+    {
+        int n=message[i]-65+key[i]-65;
+        if(n>25)
+        {
+            n-=26;
+        }
+        cipher+=(n+65);
+    }
+    cout<<"Encrypted cipher Text :"<<cipher<<endl;
+    string decmessage="";
+    for(int i=0;i<cipher.length();i++)
+    {
+        int n=cipher[i]-65-(key[i]-65);
+        if(n<0) n+=26;
+        decmessage+=(n+65);
+    }
+    cout<<"Decrypted of original message:"<<decmessage<<endl;
+    return 0;
+}
+
+
+	
+		  
+	
+		
+	
+		  
+
+
